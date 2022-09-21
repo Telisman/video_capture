@@ -3,7 +3,7 @@ import cv2
 net =cv2.dnn.readNet("dnn_model/yolov4-tiny.weights","dnn_model/yolov4-tiny.cfg")
 
 model = cv2.dnn_DetectionModel(net)
-model.setInputParams(size = (320,320),scale = 1/255)
+model.setInputParams(size = (416,416),scale = 1/255)
 
 
 
@@ -19,6 +19,14 @@ print(classes)
 
 # Set camera
 cap = cv2.VideoCapture(0)
+
+# Set camera resolution
+# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1288)
+# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+# full hd 1920x1880
+
+
+
 while True:
 
     # Get frame
